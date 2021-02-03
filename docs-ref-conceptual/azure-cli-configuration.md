@@ -13,20 +13,20 @@ ms.custom: devx-track-azurecli
 # Azure CLI configuration
 
 The Azure CLI allows for user configuration for settings such as logging, data collection, and default argument values.
-The CLI offers a convenience command for managing some defaults, **az configure**. Other values can be set in a
+The CLI offers a convenience command for managing some defaults, `az configure`. Other values can be set in a
 configuration file or with environment variables.
 
 Configuration values used by the CLI are evaluated in the following precedence, with items higher on the list taking priority.
 
 1. Command-line parameters
-1. Parameter persisted values set with **az config param-persist**
+1. Parameter persisted values set with `az config param-persist`
 1. Environment variables
-1. Values in the configuration file set with **az configure**
+1. Values in the configuration file set with `az configure`
 
 ## CLI configuration with az configure
 
 You set defaults for the CLI with the [az configure](/cli/azure/reference-index#az-configure) command.
-This command takes one argument, **--defaults**, which is a space-separated list of `key=value` pairs. The provided values are used by the CLI in place of
+This command takes one argument, `--defaults`, which is a space-separated list of `key=value` pairs. The provided values are used by the CLI in place of
 required arguments.
 
 The following table contains a list of available configuration keys.
@@ -35,10 +35,10 @@ The following table contains a list of available configuration keys.
 |------|-------------|
 | group | The default resource group to use for all commands. |
 | location | The default location to use for all commands. |
-| web | The default app name to use for **az webapp** commands. |
-| vm | The default VM name to use for **az vm** commands. |
-| vmss | The default virtual machine scale set (VMSS) name to use for  **az vmss** commands. |
-| acr | The default container registry name to use for **az acr** commands. |
+| web | The default app name to use for `az webapp` commands. |
+| vm | The default VM name to use for `az vm` commands. |
+| vmss | The default virtual machine scale set (VMSS) name to use for  `az vmss` commands. |
+| acr | The default container registry name to use for `az acr` commands. |
 
 As an example, here's how you would set the default resource group and location for all commands.
 
@@ -49,7 +49,7 @@ az configure --defaults location=westus2 group=MyResourceGroup
 ## CLI configuration file
 
 The CLI configuration file contains other settings that are used for managing CLI behavior. The configuration file itself is located
-at _$AZURE_CONFIG_DIR/config_. The default value of **AZURE_CONFIG_DIR** is `$HOME/.azure` on Linux and macOS,
+at `$AZURE_CONFIG_DIR/config`. The default value of `AZURE_CONFIG_DIR` is `$HOME/.azure` on Linux and macOS,
 and `%USERPROFILE%\.azure` on Windows.
 
 Configuration files are written in the INI file format. This file format is defined by section headers, followed by a list of key-value entries.
@@ -60,8 +60,8 @@ Configuration files are written in the INI file format. This file format is defi
 
 Booleans are case-insensitive, and are represented by the following values.
 
-* __True__: 1, yes, true, on
-* __False__: 0, no, false, off
+* __True__: `1`, `yes`, `true`, `on`
+* __False__: `0`, `no`, `false`, `off`
 
 Here's an example of a CLI configuration file that disables any confirmation prompts and sets up logging to the `/var/log/azure` directory.
 
@@ -80,17 +80,17 @@ see the [Python documentation on INI](https://docs.python.org/3/library/configpa
 ## CLI configuration values and environment variables
 
 The following table contains all of the sections and option names that can be placed in a configuration file. Their corresponding
-environment variables are set as **AZURE_{section}_{name}**, in all caps. For example, `output` default for `core` is set in the **AZURE_CORE_OUTPUT** variable, the `storage_account` default for `batchai` is set in the **AZURE_BATCHAI_STORAGE_ACCOUNT** variable, and the default `location` is set in the **AZURE_DEFAULTS_LOCATION** variable.
+environment variables are set as `AZURE_{section}_{name}`, in all caps. For example, `output` default for `core` is set in the `AZURE_CORE_OUTPUT` variable, the `storage_account` default for `batchai` is set in the `AZURE_BATCHAI_STORAGE_ACCOUNT` variable, and the default `location` is set in the `AZURE_DEFAULTS_LOCATION` variable.
 
 When you provide a default value, that argument is no longer required by any command. Instead, the default value is used.
 
 | Section | Name      | Type | Description|
 |---------|-----------|------|------------|
-| __core__ | output | string | The default output format. Can be one of **json**, **jsonc**, **tsv**, or **table**. |
+| __core__ | output | string | The default output format. Can be one of `json`, `jsonc`, `tsv`, or `table`. |
 | | disable\_confirm\_prompt | boolean | Turn confirmation prompts on/off. |
 | | collect\_telemetry | boolean | Allow Microsoft to collect anonymous data on the usage of the CLI. For privacy information, see the [Azure CLI MIT license](https://github.com/Azure/azure-cli/blob/dev/LICENSE). |
-| | only\_show\_errors | boolean | Only show errors during command invocation. In other words, only errors will be written to **stderr**. It suppresses warnings from preview, deprecated and experimental commands. It is also available for individual commands with the **--only-show-errors** parameter. |
-| | no\_color | boolean | Disable color. Originally colored messages will be prefixed with `DEBUG`, `INFO`, `WARNING` and `ERROR`. This bypasses the issue of a third-party library where the terminal's color cannot revert back after a **stdout** redirection. |
+| | only\_show\_errors | boolean | Only show errors during command invocation. In other words, only errors will be written to `stderr`. It suppresses warnings from preview, deprecated and experimental commands. It is also available for individual commands with the `--only-show-errors` parameter. |
+| | no\_color | boolean | Disable color. Originally colored messages will be prefixed with `DEBUG`, `INFO`, `WARNING` and `ERROR`. This bypasses the issue of a third-party library where the terminal's color cannot revert back after a `stdout` redirection. |
 | __logging__ | enable\_log\_file | boolean | Turn logging on/off. |
 | | log\_dir | string | The directory to write logs to. By default this value is `${AZURE_CONFIG_DIR}/logs*`. |
 | __defaults__ | group | string | The default resource group to use for all commands. |
@@ -115,7 +115,7 @@ When you provide a default value, that argument is no longer required by any com
 
 > [!NOTE]
 > You may see other values in your configuration file, but these are managed directly through CLI commands,
-> including **az configure**. The ones listed in the table above are the only values you should change yourself.
+> including `az configure`. The ones listed in the table above are the only values you should change yourself.
 
 ## See also
 

@@ -4,7 +4,7 @@ description: Learn about the latest updates to Azure CLI
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/04/2021
+ms.date: 01/19/2021
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
@@ -14,6 +14,73 @@ ms.custom: devx-track-azurecli
 # Azure CLI release notes
 
 # [Current release notes](#tab/azure-cli)
+
+## January 19, 2021
+
+Version 2.18.0
+
+### ACR
+
+* `az acr create / update`: Add `--allow-trusted-services`. This parameter determines whether trusted azure services are allowed to access network restricted registries. The default is to allow.
+
+### AKS
+
+* `az aks check-acr`: Add new check-acr command
+
+### App Service
+
+* Fix #13907: `az webapp config ssl import`: Change command to also import App Service Certificate
+* Fix #16125: `az webapp ssh`: If using a windows client, open browser to scm link
+* Fix #13291: `az webapp deployment slot swap`: The command should support preserve vnet.
+* [BREAKING CHANGE] Fix regression where you can't use a runtime version with a space in the name
+
+### ARM
+
+* `az deployment` : Add support for `--query-string`
+* `az ts`: Error handling improvement for `--template-file` without `--version` prohibited
+
+### Backup
+
+* `az backup protection backup-now`: Set default retention period to 30 days
+
+### Compute
+
+* Fix issue of none storage_profile
+* Better error handling of external tokens
+* Fix a vmss reimage issue
+* `az vm/vmss extension set`: New parameter `--enable-auto-upgrade`
+
+### Container
+
+* `az container exec`: Remove eol check to avoid closing terminal before it even started on linux
+
+### DMS
+
+* `az dms project task create`: Added task type parameter to help distinguish if a scenario is an online migration or an offline migration.
+* `az dms project task cutover`: Add new command which allows tasks with an online migration task type to cutover and end the migration.
+* `az dms project create/az dms project task create`: Enable MySQL and PostgreSQL projects/tasks to be created.
+
+### IoT
+
+* Add --tags to IoT Hub create and update
+
+### Monitor
+
+* [BREAKING CHANGE] `az monitor log-analytics workspace data-export`: Remove deprecated `--export-all-tables` parameter and require `--tables` parameter
+
+### RDBMS
+
+* Remove the preview tag for server key and ad admin commands for Postgres and MySql
+
+### Role
+
+* Fix #11594: `az role assignment create`: Only show supported values for `--assignee-principal-type`
+
+### Storage
+
+* Fix #16072: Upload file with big size
+* Fix #12291: `az storage blob generate-sas` does not properly encode `--full-uri`
+* GA PITR and blob service properties in SRP
 
 ## January 04, 2021
 
@@ -2669,9 +2736,9 @@ Version 2.0.74
 ### Batch
 
 * Added new JSON configuration settings to `--json-file` for `batch pool create`:
-  * Added `MountConfigurations` for file system mounts (see https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body for details)
+  * Added `MountConfigurations` for file system mounts (see [Request Body](/rest/api/batchservice/pool/add#request-body) for details)
   * Added optional property `publicIPs` on `NetworkConfiguration` for public IPs on pools
-    (see https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body for details)
+    (see [Request Body](/rest/api/batchservice/pool/add#request-body) for details)
 * Added support for shared image galleries to `--image`
 * [BREAKING CHANGE] Changed default value of `--start-task-wait-for-success` on `batch pool create` to be `true`
 * [BREAKING CHANGE] Changed default value for `Scope` on `AutoUserSpecification` to always be Pool (was `Task` on Windows nodes, `Pool` on Linux nodes)
@@ -4008,7 +4075,7 @@ Version 2.0.50
 
 ### Storage
 * Added support to connect to storage services only with SAS and endpoints (without an account name or a key) as described in
-  `Configure Azure Storage connection strings <https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string>`
+  [Configure Azure Storage connection strings](/azure/storage/common/storage-configure-connection-string).
 
 ### VM
 * Added `storage-sku` argument to `image create` for setting the image's default storage account type
