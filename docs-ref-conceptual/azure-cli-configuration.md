@@ -95,21 +95,21 @@ When you provide a default value, that argument is no longer required by any com
 | | log\_dir | string | The directory to write logs to. By default this value is `${AZURE_CONFIG_DIR}/logs*`. |
 | __defaults__ | group | string | The default resource group to use for all commands. |
 | | location | string | The default location to use for all commands. |
-| | web | string | The default app name to use for `az webapp` commands. |
-| | vm | string | The default VM name to use for `az vm` commands. |
-| | vmss | string | The default virtual machine scale set (VMSS) name to use for `az vmss` commands. |
-| | acr | string | The default container registry name to use for `az acr` commands. |
-| __storage__ | connection\_string | string | The default connection string to use for `az storage` commands. |
-| | account | string | The default account name to use for `az storage` commands. |
-| | key | string | The default account key to use for `az storage` commands. |
-| | sas\_token | string | The default SAS token to use for `az storage` commands. |
-| __batchai__ | storage\_account | string | The default storage account to use for `az batchai` commands. |
-| | storage\_key | string | The default storage key to use for `az batchai` commands. |
-| __batch__ | account | string | The default Azure Batch account name to use for `az batch` commands. |
-| | access\_key | string | The default access key to use for `az batch` commands. Only used with `aad` authorization. |
-| | endpoint | string | The default endpoint to connect to for `az batch` commands. |
-| | auth\_mode | string | The authorization mode to use for `az batch` commands. Can be `shared_key` or `aad`. |
-| __cloud__ | name | string | The default cloud for all `az` commands.  The possible values are  `AzureCloud` (default), `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud`. To change clouds, you can use the `az cloud set –name` command.  For an example, see [Manage Clouds with the Azure CLI](manage-clouds-azure-cli.md). |
+| | web | string | The default app name to use for **az webapp** commands. |
+| | vm | string | The default VM name to use for **az vm** commands. |
+| | vmss | string | The default virtual machine scale set (VMSS) name to use for **az vmss** commands. |
+| | acr | string | The default container registry name to use for **az acr** commands. |
+| __storage__ | account | string | The default storage account name (e.g., **mystorageaccount** in https://mystorageaccount.blob.core.windows.net) to use for **az storage** data-plane commands (e.g., `az storage container list`). |
+| | key | string | The default access key to use for **az storage** data-plane commands. |
+| | sas\_token | string | The default SAS token to use for **az storage** data-plane commands. |
+| | connection\_string | string | The default connection string to use for **az storage** data-plane commands. |
+| __batchai__ | storage\_account | string | The default storage account to use for **az batchai** commands. |
+| | storage\_key | string | The default storage key to use for **az batchai** commands. |
+| __batch__ | account | string | The default Azure Batch account name to use for **az batch** commands. |
+| | access\_key | string | The default access key to use for **az batch** commands. Only used with `aad` authorization. |
+| | endpoint | string | The default endpoint to connect to for **az batch** commands. |
+| | auth\_mode | string | The authorization mode to use for **az batch** commands. Can be `shared_key` or `aad`. |
+| __cloud__ | name | string | The default cloud for all **az** commands.  The possible values are  `AzureCloud` (default), `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud`. To change clouds, you can use the **az cloud set –name** command.  For an example, see [Manage Clouds with the Azure CLI](manage-clouds-azure-cli.md). |
 | __extension__ | use_dynamic_install | string | Install an extension if it's not added yet when running a command from it. The possible values are `no` (default), `yes_prompt`, `yes_without_prompt`. |
 | | run_after_dynamic_install | boolean | Continue to run the command when an extension is dynamically installed for it. Default is `False`. |
 
