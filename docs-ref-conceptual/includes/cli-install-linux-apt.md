@@ -187,3 +187,9 @@ You can also use `apt-get upgrade` to update the CLI package.
    ```bash
    sudo apt autoremove
    ```
+
+5. Remove user data. It cannot be restored. Be careful!
+
+   ```bash
+   rm -rf ~/.azure
+   ```
