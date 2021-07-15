@@ -42,7 +42,7 @@ for the Azure CLI. This package has been tested with RHEL 7.7, RHEL 8, Fedora 24
 3. Install with the `dnf install` command.
 
    ```bash
-   sudo dnf install azure-cli
+   sudo yum install azure-cli
    ```
  
 Run the Azure CLI with the `az` command. To sign in, use [az login](/cli/azure/reference-index#az_login) command.
@@ -71,7 +71,7 @@ You can also do it step by step:
 First, Azure CLI requires `SSL 1.1+` and you need to build `openssl 1.1` from source before building `python3`:
 
 ```bash
-$ sudo dnf install gcc gcc-c++ make ncurses patch wget tar zlib zlib-devel -y
+$ sudo yum install gcc gcc-c++ make ncurses patch wget tar zlib zlib-devel -y
 # build openssl from source
 $ cd ~
 $ wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz
